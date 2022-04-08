@@ -15,5 +15,6 @@
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn"
-  }
+  },
+  "ignorePatterns": ["build/", "webpack.config.js", ".babelrc"]
 }
