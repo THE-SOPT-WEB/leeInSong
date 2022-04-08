@@ -1,0 +1,52 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: yellow;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.category {
+  width: 20%;
+  height: 150px;
+  margin: 30px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: darksalmon;
+}
+
+.category__title {
+  font-size: 30px;
+}
+
+.category__content {
+  width: 150px;
+  margin-top: 10px;
+
+  font-size: 20px;
+}
+
+.list {
+  width: 60%;
+}
+
+.bucket {
+  width: 20%;
+}
