@@ -63,6 +63,10 @@ header {
   border-radius: 5px;
 }
 
+.item:hover {
+  background-color: cadetblue;
+}
+
 .item-image {
   width: 150px;
   height: 150px;
