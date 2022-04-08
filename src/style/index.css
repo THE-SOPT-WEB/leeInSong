@@ -1,3 +1,4 @@
+/* Main */
 main {
   display: flex;
   flex-direction: column;
@@ -39,7 +40,6 @@ header {
 .category__content {
   width: 150px;
   margin-top: 10px;
-
   font-size: 20px;
 }
 
@@ -68,6 +68,52 @@ header {
   height: 150px;
 }
 
+/* Bucket */
 .bucket {
-  width: 25%;
+  width: 20%;
+  background-color: darksalmon;
+  height: 250px;
+  margin: 40px 0;
+  border-radius: 20px;
+
+  position: sticky;
+  top: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bucket__title {
+  width: 100%;
+  text-align: left;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.price {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.bucket__content {
+  width: 100%;
+  text-align: left;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.contour {
+  height: 2px;
+  width: 90%;
+  background-color: white;
+}
+
+.bucket-btn {
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 10px;
 }
