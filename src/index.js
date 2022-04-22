@@ -6,7 +6,7 @@ import Bucket from './Bucket';
 
 const bucket = new Bucket();
 
-// itemList 클릭
+// itemList
 $('.list').addEventListener('click', ({ target }) => {
   if (!target.closest('.item')) return;
   handleItemClick(target.closest('.item'));
@@ -35,9 +35,14 @@ document.addEventListener('click', ({ target }) => {
 });
 
 const handleModalBtn = (type) => {
-  if (type === 'cancel') $('.modal').classList.add('hide');
-  else if (type === 'submit') {
-    $('.content').replaceChildren();
-    $('.content').textContent = '햄식이를 도와줘서 고마워요';
+  switch (type) {
+    case 'cancel':
+      return $('.modal').classList.add('hide');
+    case 'submit':
+      $('.content').replaceChildren();
+      $('.content').textContent = '햄식이를 도와줘서 고마워요';
+      return;
+    default:
+      return;
   }
 };
