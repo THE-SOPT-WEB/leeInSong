@@ -8,11 +8,17 @@ const bucket = {
   totalSum: 0,
 };
 
-const initialItem = {
-  name: '',
-  quantity: 1,
-  price: 0,
-};
+class Item {
+  constructor(name, price, quantity = 1) {
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+  }
+
+  setQuantity(quantity) {
+    this.quantity = quantity;
+  }
+}
 
 $('.list').addEventListener('click', ({ target }) => {
   if (!target.closest('.item')) return;
@@ -29,9 +35,7 @@ const handleItemClick = (target) => {
     const updatedItem = bucket.itemList.find((item) => item.name === name);
     updatedItem.quantity++;
   } else {
-    const createdItem = { ...initialItem };
-    createdItem.name = name;
-    createdItem.price = price;
+    const createdItem = new Item(name, price);
     bucket.itemList.push(createdItem);
     bucket.nameList.push(name);
   }
@@ -81,7 +85,7 @@ $('.bucket').addEventListener('change', ({ target }) => {
 const handleQuantityChange = ({ node, quantity }) => {
   const targetName = node.dataset.name;
   const updatedItem = bucket.itemList.find((item) => item.name === targetName);
-  updatedItem.quantity = quantity;
+  updatedItem.setQuantity(quantity);
 };
 
 // 장바구니 내 버튼 클릭
