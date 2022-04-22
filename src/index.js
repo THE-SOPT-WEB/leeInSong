@@ -88,7 +88,8 @@ const handleQuantityChange = ({ node, quantity }) => {
 $('.bucket').addEventListener('click', ({ target }) => {
   target.closest('.delete') && handleDeleteButton(target);
   target.closest('.cancel') && handleCancelBtn();
-  commitChange();
+  target.closest('.order') && handleOrderBtn();
+  !target.closest('.order') && commitChange();
 });
 
 const handleDeleteButton = (target) => {
@@ -104,6 +105,17 @@ const handleCancelBtn = () => {
   bucket.nameList = [];
 };
 
-const handleOrderBtn = () => {};
+const handleOrderBtn = () => $('.modal').classList.remove('hide');
 
-const showModal = () => {};
+const handleModalBtn = (type) => {
+  if (type === 'cancel') $('.modal').classList.add('hide');
+  else if (type === 'submit') {
+    $('.content').replaceChildren();
+    $('.content').textContent = '햄식이를 도와줘서 고마워요';
+  }
+};
+
+document.addEventListener('click', ({ target }) => {
+  target.closest('.yes') && handleModalBtn('submit');
+  target.closest('.no') && handleModalBtn('cancel');
+});
