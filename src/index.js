@@ -75,7 +75,7 @@ const renderSum = () => {
 $('.bucket').addEventListener('change', ({ target }) => {
   if (!target.closest('li')) return;
   handleQuantityChange({ node: target.closest('li'), quantity: target.value });
-  commitBucketChange();
+  commitChange();
 });
 
 const handleQuantityChange = ({ node, quantity }) => {
@@ -84,7 +84,22 @@ const handleQuantityChange = ({ node, quantity }) => {
   updatedItem.quantity = quantity;
 };
 
-const commitBucketChange = () => {
-  calculateSum();
-  renderSum();
+// 장바구니 내 버튼 클릭
+$('.bucket').addEventListener('click', ({ target }) => {
+  target.closest('.delete') && handleDeleteButton(target);
+  target.closest('.delete') && commitChange();
+});
+
+const handleDeleteButton = (target) => {
+  const targetName = target.parentNode.dataset.name;
+  const updatedItemList = bucket.itemList.filter(({ name }) => name !== targetName);
+  const updatedNameList = bucket.nameList.filter((name) => name !== targetName);
+  bucket.itemList = updatedItemList;
+  bucket.nameList = updatedNameList;
 };
+
+const handleOrderBtn = () => {};
+
+const handleCancelBtn = () => {};
+
+const showModal = () => {};
