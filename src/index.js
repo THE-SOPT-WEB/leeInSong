@@ -57,7 +57,7 @@ const itemTemplate = (name, quantity, price) => {
       <span>${name}</span>
       <input type="number" value=${quantity}>
       <span>${price.toLocaleString('ko-KR')}</span>
-      <button>X</button>
+      <button class="delete">X</button>
     </li>
   `;
 };
@@ -69,4 +69,22 @@ const calculateSum = () => {
 
 const renderSum = () => {
   $('.totalprice').textContent = bucket.totalSum.toLocaleString('ko-KR') + '원';
+};
+
+// 장바구니 아이템 수량 변경
+$('.bucket').addEventListener('change', ({ target }) => {
+  if (!target.closest('li')) return;
+  handleQuantityChange({ node: target.closest('li'), quantity: target.value });
+  commitBucketChange();
+});
+
+const handleQuantityChange = ({ node, quantity }) => {
+  const targetName = node.dataset.name;
+  const updatedItem = bucket.itemList.find((item) => item.name === targetName);
+  updatedItem.quantity = quantity;
+};
+
+const commitBucketChange = () => {
+  calculateSum();
+  renderSum();
 };
