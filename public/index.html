@@ -22,7 +22,7 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>빅맥</h5>
-              <p>5,500원</p>
+              <span>5,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
@@ -30,7 +30,7 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>슈슈버거</h5>
-              <p>5,500원</p>
+              <span>8,000원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
@@ -38,7 +38,7 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>베토디</h5>
-              <p>5,500원</p>
+              <span>6,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
@@ -46,7 +46,7 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>불고기</h5>
-              <p>5,500원</p>
+              <span>6,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
@@ -54,7 +54,7 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>1955</h5>
-              <p>5,500원</p>
+              <span>6,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
@@ -62,33 +62,34 @@
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
               <h5>상하이</h5>
-              <p>5,500원</p>
+              <span>6,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
           <article class="item">
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
-              <h5>빅맥</h5>
-              <p>5,500원</p>
+              <h5>슈비버거</h5>
+              <span>6,500원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
           <article class="item">
             <img class="item-image" src="https://i.ibb.co/41RSdgv/hamburger.png" alt="hamburger" />
             <div>
-              <h5>빅맥</h5>
-              <p>5,500원</p>
+              <h5>스낵랙</h5>
+              <span>3,000원</span>
               <p>얼마나 맛있게요?</p>
             </div>
           </article>
         </section>
         <aside class="bucket">
           <p class="bucket__title">장바구니</p>
+          <ul class="bucket__list"></ul>
           <div class="contour"></div>
           <div class="bucket__content">
             <p>누적 금액</p>
-            <p class="price">0원</p>
+            <p class="totalprice">0원</p>
           </div>
           <div class="contour"></div>
           <div>
@@ -96,6 +97,13 @@
             <button class="bucket-btn cancel">취소하기</button>
           </div>
         </aside>
+        <div class="modal hide">
+          <div class="modal__content">
+            <p class="modal__body">정말 주문하시겠어요?</p>
+            <button class="yes">예</button>
+            <button class="no">아니오</button>
+          </div>
+        </div>
       </div>
     </main>
   </body>
