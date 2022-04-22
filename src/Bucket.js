@@ -5,6 +5,7 @@ export default class Bucket {
     this.itemList = [];
     this.nameList = [];
     this.totalSum = 0;
+    this.addEvent();
   }
 
   addToItemList(item) {
@@ -27,10 +28,8 @@ export default class Bucket {
 
   handleDeleteButton(target) {
     const targetName = target.parentNode.dataset.name;
-    const updatedItemList = this.itemList.filter(({ name }) => name !== targetName);
-    const updatedNameList = this.nameList.filter((name) => name !== targetName);
-    this.itemList = updatedItemList;
-    this.nameList = updatedNameList;
+    this.itemList = this.itemList.filter(({ name }) => name !== targetName);
+    this.nameList = this.nameList.filter((name) => name !== targetName);
   }
 
   handleOrderBtn() {
@@ -56,6 +55,12 @@ export default class Bucket {
     );
   }
 
+  handleQuantityChange({ node, quantity }) {
+    const targetName = node.dataset.name;
+    const updatedItem = this.itemList.find((item) => item.name === targetName);
+    updatedItem.setQuantity(quantity);
+  }
+
   commitChange() {
     this.setTotalSum();
     this.renderList();
@@ -65,5 +70,20 @@ export default class Bucket {
     this.itemList = [];
     this.nameList = [];
     this.totalSum = 0;
+  }
+
+  addEvent() {
+    $('.bucket').addEventListener('change', ({ target }) => {
+      if (!target.closest('li')) return;
+      this.handleQuantityChange({ node: target.closest('li'), quantity: target.value });
+      this.commitChange();
+    });
+
+    $('.bucket').addEventListener('click', ({ target }) => {
+      target.closest('.delete') && this.handleDeleteButton(target);
+      target.closest('.cancel') && this.reset();
+      target.closest('.order') && this.handleOrderBtn();
+      !target.closest('.order') && this.commitChange();
+    });
   }
 }

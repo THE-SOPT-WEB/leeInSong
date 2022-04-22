@@ -28,27 +28,6 @@ const handleItemClick = (target) => {
   }
 };
 
-// 장바구니 아이템 수량 변경
-$('.bucket').addEventListener('change', ({ target }) => {
-  if (!target.closest('li')) return;
-  handleQuantityChange({ node: target.closest('li'), quantity: target.value });
-  bucket.commitChange();
-});
-
-const handleQuantityChange = ({ node, quantity }) => {
-  const targetName = node.dataset.name;
-  const updatedItem = bucket.itemList.find((item) => item.name === targetName);
-  updatedItem.setQuantity(quantity);
-};
-
-// 장바구니 내 버튼 클릭
-$('.bucket').addEventListener('click', ({ target }) => {
-  target.closest('.delete') && bucket.handleDeleteButton(target);
-  target.closest('.cancel') && bucket.reset();
-  target.closest('.order') && bucket.handleOrderBtn();
-  !target.closest('.order') && bucket.commitChange();
-});
-
 // Modal
 document.addEventListener('click', ({ target }) => {
   target.closest('.yes') && handleModalBtn('submit');
