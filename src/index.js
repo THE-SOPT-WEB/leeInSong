@@ -87,7 +87,8 @@ const handleQuantityChange = ({ node, quantity }) => {
 // 장바구니 내 버튼 클릭
 $('.bucket').addEventListener('click', ({ target }) => {
   target.closest('.delete') && handleDeleteButton(target);
-  target.closest('.delete') && commitChange();
+  target.closest('.cancel') && handleCancelBtn();
+  commitChange();
 });
 
 const handleDeleteButton = (target) => {
@@ -98,8 +99,11 @@ const handleDeleteButton = (target) => {
   bucket.nameList = updatedNameList;
 };
 
-const handleOrderBtn = () => {};
+const handleCancelBtn = () => {
+  bucket.itemList = [];
+  bucket.nameList = [];
+};
 
-const handleCancelBtn = () => {};
+const handleOrderBtn = () => {};
 
 const showModal = () => {};
